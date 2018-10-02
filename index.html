@@ -50,17 +50,21 @@ input[type="number"]
 		</div>
 	</header>
 
-	<div class="container">
-    <h1 class="project-name"><form id="req" target="aviframe" action="try.php" method="post">
-Here are <input type="number" name="numberA" value="10">
-most popular articles in <input type="text" name="site" value="The Hindu and BBC">from <input type="date" name="fromDate" value=2018-04-28> to <input type="date" name="toDate" value="2018-04-29">. Display as  <select name="output">
-    <option value="timeline">timeline</option>
-    <option value="chart">chart</option>
-</h1>
+	
 		
   
 
+<div id="form">
+<form id="req" target="aviframe" action="try.php" method="post">
+Here are the <input type="number" name="numberA" value="10" class="choice">
+most popular articles in  <input type="text" name="site" value="The Hindu and BBC" class="choice"> from <input type="date" name="fromDate" value=2018-04-28 class="choice"> to <input type="date" name="toDate" value="2018-04-29" class="choice">.  Display as  <select name="output" class="choice">
+    <option value="timeline">timeline</option>
+    <option value="chart">chart</option>
 
+  </select>
+<input type="submit" value="Submit" style="visibility: hidden;">
+</form>
+</div>
 
 
 
