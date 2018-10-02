@@ -1,4 +1,4 @@
-@import "https://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700";
+@import "https://fonts.googleapis.com/css?family=roboto:300,400,500,600,700";
 header:after, #timeline .timeline-item:after, header:before, #timeline .timeline-item:before {
   content: '';
   display: block;
@@ -17,14 +17,14 @@ body, html {
 }
 
 body {
-  background: #f9f9f9;
+  background: #a2a2a2;
   background-size: cover;
   margin: 0;
   padding: 0;
   font-family: helvetica, arial, tahoma, verdana;
   line-height: 20px;
   font-size: 14px;
-  color: #726f77;
+  color: #fff;
 }
 
 img {
@@ -41,7 +41,7 @@ a {
 }
 
 h1, h2, h3, h4 {
-  font-family: "Dosis", arial, tahoma, verdana;
+  font-family: "Roboto", tahoma, verdana;
   font-weight: 500;
 }
 
