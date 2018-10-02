@@ -29,15 +29,15 @@ input[type="number"]
 
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-
+<link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 
+
 <div id="form">
 <form id="req" target="aviframe" action="try.php" method="post">
-Here are <input type="number" name="numberA" value="10">
-most popular articles in <input type="text" name="site" value="The Hindu and BBC">from <input type="date" name="fromDate" value=2018-04-28> to <input type="date" name="toDate" value="2018-04-29">. Display as  <select name="output">
+Here are the <input type="number" name="numberA" value="10" class="choice">
+most popular articles in <br/> <input type="text" name="site" value="The Hindu and BBC" class="choice"> <br/>from <input type="date" name="fromDate" value=2018-04-28 class="choice"> to <input type="date" name="toDate" value="2018-04-29" class="choice">. <br/> Display as  <select name="output" class="choice">
     <option value="timeline">timeline</option>
     <option value="chart">chart</option>
 
@@ -49,6 +49,7 @@ most popular articles in <input type="text" name="site" value="The Hindu and BBC
 <iframe name="aviframe" align="bottom" width="1200" height="600" frameborder="0">
 
 </iframe>
+
 
 
 
