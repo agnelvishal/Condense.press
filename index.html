@@ -1,0 +1,80 @@
+<html>
+<head>
+
+<style>
+#form
+{
+font-size: xx-large;
+color: 	#303632;
+font-family:Helvetica;
+}
+input
+{
+font-size: xx-large;
+}
+input[type="text"]
+{
+    border: 0px solid #000000;
+    border-bottom-width: 1px;
+    background-color: transparent;
+}
+input[type="number"]
+{
+    width: 3em;
+    border: 0px solid #000000;
+    border-bottom-width: 1px;
+    background-color: transparent;
+}
+</style>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+
+</head>
+
+<div id="form">
+<form id="req" target="aviframe" action="try.php" method="post">
+Here are <input type="number" name="numberA" value="10">
+most popular articles in <input type="text" name="site" value="The Hindu and BBC">from <input type="date" name="fromDate" value=2018-04-28> to <input type="date" name="toDate" value="2018-04-29">. Display as  <select name="output">
+    <option value="timeline">timeline</option>
+    <option value="chart">chart</option>
+
+  </select>
+<input type="submit" value="Submit" style="visibility: hidden;">
+</form>
+</div>
+
+<iframe name="aviframe" align="bottom" width="1200" height="600" frameborder="0">
+
+</iframe>
+
+
+
+
+<script>
+var inputs = document.getElementsByTagName("input");
+for (i=0; i<inputs.length; i++){
+   inputs[i].onchange = changeHandler;
+}
+document.getElementsByTagName('select')[0].onchange = function() {
+changeHandler();
+}
+function changeHandler(event) {
+    // You can use “this” to refer to the selected element.
+     document.forms["req"].submit();
+}
+</script>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.0/bootstrap-table.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+</html>
