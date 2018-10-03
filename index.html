@@ -1,72 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <title>Timeline</title>
-      <link rel="stylesheet" href="css/style.css">
-
-
+  <link rel="stylesheet" href="css/style.css">
   <style>
-#form
-{
-font-size: xx-large;
-color: 	#303632;
-font-family:Blackadder ITC;
-
-}
-input
-{
-font-size: xx-large;
-}
-input[type="text"]
-{
-    border: 0px solid #000000;
-    border-bottom-width: 1px;
-    background-color: rgba(0,0,0,0.1);
-}
-input[type="number"]
-{
-    width: 3em;
-    border: 0px solid #000000;
-    border-bottom-width: 1px;
-    background-color: rgba(0,0,0,0.1);
-}
 </style>
-  
-
-  
 </head>
 
 <body>
-
   <header>
-		<div class="container">
-		  <h1 class="logo"> CONDENSE<span>.PRESS</span> </h1>
-		  <section class="social">
-				<a class="btn" href="https://github.com/agnelvishal/Condense.press">Github</a>
-			</section>
-		</div>
-	</header>
-
-	
-		
-  
-
-<div id="form">
-<form id="req" target="aviframe" action="try.php" method="post">
-Here are the <input type="number" name="numberA" value="10" class="choice">
-most popular articles in  <input type="text" name="site" value="The Hindu and BBC" class="choice"> from <input type="date" name="fromDate" value=2018-04-28 class="choice"> to <input type="date" name="toDate" value="2018-04-29" class="choice">.  Display as  <select name="output" class="choice">
-    <option value="timeline">timeline</option>
-    <option value="chart">chart</option>
-
-  </select>
-<input type="submit" value="Submit" style="visibility: hidden;">
-</form>
-</div>
-
-
-
+    <div class="container">
+      <h1 class="logo"> CONDENSE<span>.PRESS</span> </h1>
+      <section class="social">
+        <a class="btn" href="https://github.com/agnelvishal/Condense.press">Github</a>
+      </section>
+    </div>
+  </header>
+  <div id="form">
+    <form id="req" target="aviframe" action="try.php" method="post">
+      Here are the
+      <input type="number" name="numberA" value="10" class="choice">
+      most popular articles in
+      <input type="text" name="site" value="The Hindu and BBC" class="choice"> from
+      <input type="date" name="fromDate" value=2018-04-28 class="choice"> to
+      <input type="date" name="toDate" value="2018-04-29" class="choice">. Display as
+      <select name="output" class="choice dropdown">
+        <option value="timeline">timeline</option>
+        <option value="chart">chart</option>
+      </select>
+      <input type="submit" value="Submit" style="visibility: hidden;">
+    </form>
+  </div>
 </body>
 
 </html>
