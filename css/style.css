@@ -235,7 +235,8 @@ header .social .btn {
 
 #form{
  margin: 0.2em;
- border: 2px dotted gray;
+ border: 2px solid gray;
+ border-radius: 5px;
  padding:0.2em;
  line-height:1.6;
  text-align: center;
@@ -249,4 +250,6 @@ header .social .btn {
   margin:0.2em;
 }
 
-
+#displayas {
+  font-size:xx-large;
+}
