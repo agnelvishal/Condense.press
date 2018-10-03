@@ -1,4 +1,50 @@
 @import "https://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700";
+
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+    max-height: fit-content;
+    width: 100%;
+    align-self: center;
+    flex-direction: column;
+    background-color: rgb(36, 50, 61);
+}
+label{
+    font-size: large;
+    font-family: "Times New Roman", monospace;
+    color: rgba(#1a1a1a,0.3);
+    color:rgba(255,255,255);
+}
+button[type=button]{
+    background-color: #1AB188;
+    color: white;
+    border: none;
+    border-radius: 2%;
+    display: inline-block;
+    padding: 0 2em;
+}
+div.input-group input{
+    border: none;
+    border-bottom:1px solid #1AB188;
+    background-color: rgb(36, 50, 61);
+    color: white;
+}
+::placeholder{
+    color: white;
+    opacity: 0.9;
+    font-family: 'Dosis', Times, serif
+}
+.form-group{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-height: fit-content;
+
+}
 header:after, #timeline .timeline-item:after, header:before, #timeline .timeline-item:before {
   content: '';
   display: block;
@@ -233,7 +279,7 @@ header .social .btn {
   }
 }
 
-#form{
+/*#form{
  margin: 0.2em;
  border: 2px dotted gray;
  padding:0.2em;
@@ -248,5 +294,4 @@ header .social .btn {
   font-weight:bold;
   margin:0.2em;
 }
-
-
+*/
