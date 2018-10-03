@@ -50,12 +50,17 @@ header .logo>span {
     padding: 0.4em;
     background-color: #eeeeee;
 
-    line-height: 1.6;
+    line-height: 2.0;
     text-align: center;
     border-radius: 20px;
     box-shadow: 1px 1px 6px 6px white;
 
 }
+
+form#req {
+    padding: 20px;
+}
+    
 
 /*
      Form - Inputs
