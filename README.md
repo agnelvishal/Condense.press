@@ -1,2 +1,2 @@
 ## Condense.press
-    Website to search for the Most Popular articles in a time period.
+    Website to find the Most Popular articles in a time period.
