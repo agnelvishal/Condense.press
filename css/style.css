@@ -2,9 +2,12 @@
 
 
 body {
-   background-color: #5e387f;
+    background-color: #5e387f;
     margin: 0;
-        font-family: "Dosis", tahoma, verdana;
+    font-family: "Dosis", tahoma, verdana;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 header:after,
@@ -15,6 +18,10 @@ header:after,
     clear: both;
 }
 
+#aviframe {
+    margin: 0 auto;
+}
+
 .headerContainer {
     max-width: 1100px;
     margin: 0 auto;
@@ -23,7 +30,7 @@ header:after,
 
 header {
     background: #2b2e48;
-    
+
 }
 
 header .logo {
@@ -69,15 +76,12 @@ input, select{
 border: 0px solid #aaa;
     border-bottom-width: 1px;
     background-color: rgba(100, 10, 10, 0.09);
-         margin: 10px; 
+         margin: 10px;
 
 }
 
 
 input[type="number"] {
     width: 3em;
- 
+
 }
-
-
-
