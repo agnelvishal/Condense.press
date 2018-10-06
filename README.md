@@ -1,7 +1,7 @@
 
 App details
 ===========================
-Pick popular articles on specific time.
+Pick popular articles of specific date range.
 
 Tech Details
 ===========================
