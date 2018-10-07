@@ -38,10 +38,10 @@ $toDate=$_POST["toDate"];
 
 //query generation for date
 $whereDateClause=" where";
-$whereDateClause.="( item_date between\"";
-$whereDateClause.=$fromDate;
+$whereDateClause.="( item_date between \"";
+$whereDateClause.=$db->real_escape_string($fromDate);
 $whereDateClause.="\" AND \"";
-$whereDateClause.=$toDate;
+$whereDateClause.=$db->real_escape_string($toDate);
 $whereDateClause.="\" )";
 
 
