@@ -18,7 +18,7 @@ try{
 
 
 
-
+// Database details
 
 
 $h = "agnelvishal2.cm6dgizwvuku.us-east-2.rds.amazonaws.com";
@@ -28,6 +28,7 @@ $db = mysqli_connect($h, $u, $p,"agnelvishal");
 if (mysqli_connect_errno($db)) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
+
 
 $limit=100;
 //$output=$_POST["output"];
@@ -55,9 +56,8 @@ if (!$result) die('Av -- Could not get data: --' . mysqli_error($db));
 <div id="container" style="height: 400px; min-width: 310px; max-width: 600px; margin: 0 auto"></div>
 
 
-
- <script>
- Highcharts.chart('container', {
+<script>
+Highcharts.chart('container', {
 
    chart: {
      type: 'bubble',
@@ -129,8 +129,10 @@ if (!$result) die('Av -- Could not get data: --' . mysqli_error($db));
    series: [{
      data: [
 
-<?php
+ 
 
+<?php
+// Data being fetched from db for charts
 $urlExists=array();
 $iurlExists=0;
 
@@ -172,6 +174,8 @@ $iurlExists=0;
 
 
   ?>
+
+// Highcharts code termination
      ]
      }]
 
@@ -182,7 +186,7 @@ $iurlExists=0;
   <?php
 
 
-////
+// Data being fetched for cards
 
 
  $table = '<div class="row">';
@@ -205,36 +209,32 @@ $iurlExists=0;
            $iurlExists++;
        $table .= '<div class="column"><div class="card">';
 
-       $table .='<img src="'.$rows["image"].'" style="width:320px"></img>';
-       $table .= '<h2>'.$rows["item_title"].'</h2>';
-      $table .='<div class="container">';
-
-
-       $table .= '<p> Total Popularity:';
+       $table .='<div class="center-image" style="background-image: url('.$rows["image"].');" style="width:320px"></div>';
+       $table .= '<h2 class="block-with-text">'.$rows["item_title"].'</h2>';
+       $table .='<div class="container">';
+       $table .= '<span class="date">'.$rows["item_date"].'</span>';
+       $table .= '<div class="meta"><div class="meta-item"><p class="label">Total Popularity:</p><p>';
        $table .= $rows["total"];
-       $table .= '</p>';
-       $table .= '<p> Facebook Likes:';
-       $table .= $rows["likes"];
-
-       $table .= '. Facebook Shares';
-       $table .= $rows["shares"];
-
-       $table .= '. Search Engine Popularity:';
+       $table .= '</p></div><div class="meta-item"><p class="label">Search Engine Popularity:</p><p>';
        $table .= $rows["pa"];
-
-       $table .= '.</p><p>';
+       $table .= '</p></div><div class="meta-item"><p class="label">Facebook Shares</p><p>';
+       $table .= $rows["shares"];
+       $table .= '</p></div><div class="meta-item"><p class="label">Facebook Likes:</p><p>';
+       $table .= $rows["likes"];
+       $table .= '</p></div></div><p class="description">';
        $table .= $rows["item_content"];
        $table .= '</p>';
 
        $table .= '<a target="_blank" href="'.$rows["item_url"].'" >Read more</a>';
-       $table .= '<span class="date">'.$rows["item_date"].'</span>';
-       $table.='</div></div></div>'	; 
+       $table.='</div></div></div>'	;
       }
     }
     $table.='</div>';
-echo $table;
 
-////
+  echo $table;
+
+
+//
 
 
 

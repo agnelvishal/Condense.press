@@ -19,14 +19,11 @@
 
     <form id="req" target="aviframe" action="db.php" method="post">
       Here are the articles of
-      <select name="site"> <option value="www.yourstory.com">www.yourstory.com</option></select> 
+      <select name="site"> <option value="www.bbc.com">www.bbc.com</option><option value="www.yourstory.com">www.yourstory.com</option></select> 
 from 
       <input type="date" name="fromDate" value=2018-04-28 > to
-      <input type="date" name="toDate" value="2018-04-29" >. Display as
-      <select name="output" class="dropdown">
-        <option value="timeline">timeline</option>
-        <option value="chart">chart</option>
-      </select>
+      <input type="date" name="toDate" value="2018-04-29" >.
+   
       <input type="submit" value="Submit" style="visibility: hidden;">
     </form>
   
