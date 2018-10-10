@@ -6,6 +6,8 @@
   <title>Timeline</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
+
+
 </style>
 </head>
 
@@ -20,7 +22,7 @@
     <form id="req" target="aviframe" action="db.php" method="post">
       Here are the articles of
       <select name="site"> <option value="www.bbc.com">www.bbc.com</option><option value="www.yourstory.com">www.yourstory.com</option></select> 
-from 
+sorted by popularity from 
       <input type="date" name="fromDate" value=2018-04-28 > to
       <input type="date" name="toDate" value="2018-04-29" >.
    
@@ -28,10 +30,11 @@ from
     </form>
   
 
-
-<iframe id="aviframe" name="aviframe" align="bottom" width="1400" height="1000" frameborder="0" allowfullscreen>
-
+<div class="iframe-container">
+<iframe id="aviframe" name="aviframe" align="bottom"  frameborder="0" allowfullscreen>
 </iframe>
+</div>
+
  <script src="./js/autoSubmit.js"></script>
 </body>
 

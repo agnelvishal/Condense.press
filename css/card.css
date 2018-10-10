@@ -12,7 +12,7 @@
 }
 
 /* Display the columns below each other instead of side by side on small screens */
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 1000px) {
     .column {
         width: 100%;
         display: block;
@@ -30,7 +30,7 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
-    font-family: 'Roboto', sans-serif;
+
 }
 
 
@@ -75,7 +75,7 @@ position: relative;
   height:0;
   transition: 1s ease;
     color: pink;
-    font-family: 'Roboto', sans-serif;
+
 }
 
 .card:hover .container {
@@ -87,7 +87,7 @@ position: relative;
 /* Card by adin234  */
 
 .center-image {
-    height: 200px;
+    height: 400px;
     width: 100%;
     background-size: cover;
     background-position: center;

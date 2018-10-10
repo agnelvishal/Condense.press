@@ -1,10 +1,9 @@
-@import "https://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700";
+
 
 
 body {
     background-color: #5e387f;
     margin: 0;
-    font-family: "Dosis", tahoma, verdana;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,7 +20,7 @@ header:after,
 #aviframe {
     margin: 0 auto;
         background-color: #9e939f;
-`
+
 }
 
 .headerContainer {
@@ -38,7 +37,6 @@ header {
 header .logo {
     color: #ee4d4d;
     float: left;
-    font-family: "Dosis", tahoma, verdana;
     font-size: 22px;
     font-weight: 500;
 }
@@ -55,7 +53,7 @@ header .logo>span {
 #req {
     font-size: xx-large;
     color: #303632;
-    margin: 2em;
+    margin: 0.5em;
     padding: 20px;
     line-height: 2;
     text-align: center;
@@ -72,8 +70,8 @@ background-color: lightyellow;
 input, select{
     text-align: center;
     border-radius: 10px;
-    font-weight: 500;
-    font-family: "Dosis", tahoma, verdana;
+font-family: Roberto;
+
     font-size: inherit;
 border: 0px solid #aaa;
     border-bottom-width: 1px;
@@ -83,7 +81,23 @@ border: 0px solid #aaa;
 }
 
 
-input[type="number"] {
-    width: 3em;
 
+
+/*
+     Iframes
+*/
+
+.iframe-container {
+  overflow: hidden;
+  padding-top: 120%;
+  position: relative;
+}
+
+.iframe-container iframe {
+   border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;
 }
