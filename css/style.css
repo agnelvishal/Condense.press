@@ -20,8 +20,9 @@ header:after,
 
 #aviframe {
     margin: 0 auto;
-        background-color: #9e939f;
-`
+    background-color: #9e939f;
+    min-height: 800px;
+    width: 100%;
 }
 
 .headerContainer {

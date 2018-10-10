@@ -29,7 +29,7 @@ from
   
 
 
-<iframe id="aviframe" name="aviframe" align="bottom" width="1400" height="1000" frameborder="0" allowfullscreen>
+<iframe id="aviframe" name="aviframe" align="bottom" frameborder="0" allowfullscreen>
 
 </iframe>
  <script src="./js/autoSubmit.js"></script>
