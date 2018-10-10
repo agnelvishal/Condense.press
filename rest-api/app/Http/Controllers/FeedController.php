@@ -14,7 +14,6 @@ class FeedController extends Controller
 
     public function between(Request $request)
     {
-
-        return DB::table('FEED')->whereBetween('item_date', [$request->query('startDate'), $request->query('endDate')])->paginate(15);
+        return DB::table('FEED')->select('item_content','item_title','item_date', 'item_url','total','image','likes','shares','pa')->whereBetween('item_date', [$request->query('startDate'), $request->query('endDate')])->paginate(15);
     }
 }
