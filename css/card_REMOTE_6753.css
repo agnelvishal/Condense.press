@@ -11,35 +11,15 @@
 }
 
 /* Display the columns below each other instead of side by side on small screens */
-<<<<<<< HEAD
-@media screen and (max-width: 1000px) {
-    .column {
-        width: 100%;
-        display: block;
-    }
-=======
 @media screen and (max-width: 650px) {
   .column {
     width: 100%;
     display: block;
   }
->>>>>>> b54e11780136fe3b02c06e6945bbe97278292c7b
 }
 
 /* Add some shadows to create a card effect */
 .card {
-<<<<<<< HEAD
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
- position: relative;
-    background: lightyellow;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-
-=======
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   position: relative;
   background: lightyellow;
@@ -50,7 +30,6 @@
   align-items: center;
   padding: 10px;
   font-family: 'Roboto', sans-serif;
->>>>>>> b54e11780136fe3b02c06e6945bbe97278292c7b
 }
 
 .card:hover {
@@ -87,13 +66,8 @@ Overlay on hover
   overflow: hidden;
   height: 0;
   transition: 1s ease;
-<<<<<<< HEAD
-    color: pink;
-
-=======
   color: pink;
   font-family: 'Roboto', sans-serif;
->>>>>>> b54e11780136fe3b02c06e6945bbe97278292c7b
 }
 
 .card:hover .container {
@@ -104,17 +78,10 @@ Overlay on hover
 /* Card by adin234  */
 
 .center-image {
-<<<<<<< HEAD
-    height: 400px;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-=======
   height: 200px;
   width: 100%;
   background-size: cover;
   background-position: center;
->>>>>>> b54e11780136fe3b02c06e6945bbe97278292c7b
 }
 /* styles for '...' */
 .block-with-text {
