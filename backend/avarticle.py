@@ -8,8 +8,8 @@ import mysql.connector as mariadb
 from newspaper import ArticleException
 import articleDateExtractor
 
-
-mariadb_connection = mariadb.connect(user='root', password='frederick', database=' avmariadb')
+# database credentials to be added.
+mariadb_connection = mariadb.connect(user='', password='', database=' ')
 cursor = mariadb_connection.cursor()
 
 #retrieving information
