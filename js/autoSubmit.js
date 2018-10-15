@@ -1,4 +1,4 @@
- document.forms["req"].submit();
+document.forms["req"].submit();
 
 var inputs = document.getElementsByTagName("input");
 for (i=0; i<inputs.length; i++){
