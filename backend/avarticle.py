@@ -1,9 +1,6 @@
 #!/usr/bin/python
 
-import newspaper
 from newspaper import Article
-import requests
-from bs4 import BeautifulSoup
 import mysql.connector as mariadb
 from newspaper import ArticleException
 import articleDateExtractor
