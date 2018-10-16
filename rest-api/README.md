@@ -1,14 +1,11 @@
 # Lumen Rest API
 
-Getting Started:
-```sh
-cp .env.example .env
-```
 
 Run
-```sh
+```
 php -S localhost:8000 index.php
 ```
+index.php is located at rest-api/public
 
 Routes
 - GET `/feeds` returns all feeds
