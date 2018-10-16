@@ -14,6 +14,7 @@ function loadArticles(event) {
         type: 'POST',
         url: "articles.php",
         data: {
+            'site': $('#articles-articles-site').val(),
             'fromDate': $('#articles-from-date').val(),
             'toDate': $('#articles-to-date').val()
         },
