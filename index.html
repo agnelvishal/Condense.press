@@ -2,40 +2,37 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Timeline</title>
-  <link rel="stylesheet" href="css/style.css">
-  <style>
-
-
-</style>
+    <meta charset="UTF-8">
+    <title>Timeline</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="./js/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/card.css">
 </head>
 
 <body>
-  <header>
-    <div class="headerContainer">
-      <h1 class="logo"> condense<span>.press</span> </h1>
-    
-    </div>
-  </header>
+    <header>
+        <div class="headerContainer">
+            <h1 class="logo"> condense<span>.press</span></h1>
+        </div>
+    </header>
 
-    <form id="req" target="aviframe" action="articles.php" method="post">
-      Here are the articles of
-      <select name="site"> <option value="www.bbc.com">www.bbc.com</option><option value="www.yourstory.com">www.yourstory.com</option></select> 
-sorted by popularity from 
-      <input type="date" name="fromDate" value=2018-04-28 > to
-      <input type="date" name="toDate" value="2018-04-29" >.
-   
-      <input type="submit" value="Submit" style="visibility: hidden;">
+    <form id="req" action="" method="post">
+        Here are the articles of
+        <select id="articles-site" name="site">
+            <option value="www.bbc.com">www.bbc.com</option>
+            <option value="www.yourstory.com">www.yourstory.com</option>
+        </select>
+        sorted by popularity from
+        <input id="articles-from-date" type="date" name="fromDate" value=2018-04-28> to
+        <input id="articles-to-date" type="date" name="toDate" value="2018-04-29">.
     </form>
-  
 
-<div class="iframe-container">
-<iframe id="aviframe" name="aviframe" align="bottom"  frameborder="0" allowfullscreen>
-</iframe>
-</div>
+    <div id="articles-container"></div>
 
- <script src="./js/loadArticles.js"></script>
+    <script src="./js/loadArticles.js"></script>
 </body>
 
 </html>

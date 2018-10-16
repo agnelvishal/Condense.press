@@ -1,11 +1,34 @@
-var inputs = document.getElementsByTagName('input');
-for (i = 0; i < inputs.length; i++) {
-  inputs[i].onchange = changeHandler;
-}
-document.getElementsByTagName('select')[0].onchange = function() {
-  changeHandler();
-};
-function changeHandler(event) {
-  // You can use “this” to refer to the selected element.
-  document.forms['req'].submit();
+$( document ).ready(function() {
+    $('input').change(function () {
+        loadArticles();
+    });
+    $('select').change(function () {
+        loadArticles();
+    });
+
+    loadArticles();
+});
+
+function loadArticles(event) {
+    var request = $.ajax({
+        type: 'POST',
+        url: "articles.php",
+        data: {
+            'fromDate': $('#articles-from-date').val(),
+            'toDate': $('#articles-to-date').val()
+        },
+        error: function (e) {
+            $("#articles-container").html("<p>Failed to load articles.</p>");
+            console.log(e);
+        },
+        dataType: 'html'
+    });
+
+    $.when(request).done(function (html) {
+        console.log(html);
+        $("#articles-container").html(html);
+    }).fail(function (response) {
+        $("#articles-container").html("<p>Failed to load articles.</p>");
+        console.log(response);
+    });
 }
