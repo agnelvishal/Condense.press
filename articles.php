@@ -1,24 +1,7 @@
-
-<head>
-
-
-
-
-
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/highcharts-more.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-  <link rel="stylesheet" href="css/card.css">
-
-
-
-
-</head>
-<body>
 <?php
 
 
-try{
+try {
 
 
 
@@ -177,8 +160,3 @@ mysqli_close($db);
 } catch (Exception $e) {
   echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
-
- ?>
-
-
-</body>
