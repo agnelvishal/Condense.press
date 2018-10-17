@@ -10,7 +10,7 @@ function loadArticles(event) {
         error: function (e) {
             $("#articles-container").html("<p>Failed to load articles.</p>");
         },
-        dataType: 'html'
+        dataType: "html"
     });
 
     $.when(request).done(function (html) {
@@ -21,10 +21,10 @@ function loadArticles(event) {
 }
 
 $( document ).ready(function() {
-    $('input').change(function () {
+    $("input").change(function () {
         loadArticles();
     });
-    $('select').change(function () {
+    $("select").change(function () {
         loadArticles();
     });
 
