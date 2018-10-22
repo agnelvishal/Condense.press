@@ -39,6 +39,10 @@ $limit=100;
 
 $fromDate=$_POST["fromDate"];
 $toDate=$_POST["toDate"];
+$fromDate=mysqli_real_escape_string($db,$fromDate);
+$toDate=mysqli_real_escape_string($db,$toDate);
+
+
 
 //query generation for date
 $whereDateClause=" where";
@@ -51,6 +55,7 @@ $whereDateClause.="\" )";
 
 
 $item_select = "SELECT item_content,item_title,item_date, item_url,total,image,likes,shares,pa FROM `FEED`".$whereDateClause." ORDER BY total desc limit ".$limit;
+
 //echo $item_select;
 $result = mysqli_query($db, $item_select);
 if (!$result) die('Av -- Could not get data: --' . mysqli_error($db));
