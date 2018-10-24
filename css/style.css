@@ -1,8 +1,33 @@
+:root {
+/* 
+    Color Palette: https://coolors.co/f2dc5d-f2a359-db9065-a4031f-240b36 
+*/
 
+    /* body */
+    --color-1: #F2DC5D;
+
+    /* iframe */
+    --color-2: #F2A359; 
+
+    /* header */
+    --color-3: #DB9065;
+
+    /* header text color */
+    --color-4: #ee4d4d;
+
+    /* logo */
+    --color-5: #000;
+
+    /* required */
+    --color-6: #A4031F;
+
+    /* input border */
+    --color-7: #240B36;
+}
 
 
 body {
-    background-color: #5e387f;
+    background-color: var(--color-1);
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -19,7 +44,7 @@ header:after,
 
 #aviframe {
     margin: 0 auto;
-        background-color: #9e939f;
+    background-color: var(--color-2);
 
 }
 
@@ -30,19 +55,19 @@ header:after,
 
 
 header {
-    background: #2b2e48;
+    background: var(--color-3);
 
 }
 
 header .logo {
-    color: #ee4d4d;
+    color: var(--color-4);
     float: left;
     font-size: 22px;
     font-weight: 500;
 }
 
 header .logo>span {
-    color: #f7aaaa;
+    color: var(--color-5);
     font-weight: 300;
 }
 
@@ -52,7 +77,7 @@ header .logo>span {
 */
 #req {
     font-size: xx-large;
-    color: #303632;
+    color: var(--color-6);
     margin: 0.5em;
     padding: 20px;
     line-height: 2;
@@ -73,7 +98,7 @@ input, select{
 font-family: Roberto;
 
     font-size: inherit;
-border: 0px solid #aaa;
+border: 0px solid var(--color-7);
     border-bottom-width: 1px;
     background-color: rgba(100, 10, 10, 0.09);
          margin: 10px;
