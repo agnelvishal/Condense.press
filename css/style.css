@@ -10,6 +10,10 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+p{
+    margin: 0;
+}
+
 header:after,
 #timeline  {
     content: '';
@@ -37,7 +41,7 @@ header {
 
 header .logo {
     color: #0A8754;
-    float: left;
+    padding-left: 10%;
     font-size: 22px;
     font-weight: 500;
 }
@@ -59,7 +63,7 @@ header .logo>span {
     text-align: center;
     border-radius: 20px;
     box-shadow: 1px 1px 6px 6px #BFD7EA;
-background-color: lightyellow;
+    background-color: lightyellow;
 
 }
 
