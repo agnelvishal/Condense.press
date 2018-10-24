@@ -2,11 +2,12 @@
 
 
 body {
-    background-color: #5e387f;
+    background-color: #3B8FC6;
     margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-family: 'Montserrat', sans-serif;
 }
 
 header:after,
@@ -30,35 +31,34 @@ header:after,
 
 
 header {
-    background: #2b2e48;
+    background: #BFD7EA;
 
 }
 
 header .logo {
-    color: #ee4d4d;
+    color: #0A8754;
     float: left;
     font-size: 22px;
     font-weight: 500;
 }
 
 header .logo>span {
-    color: #f7aaaa;
+    color: #004F2D;
     font-weight: 300;
 }
-
 
 /*
      Form
 */
 #req {
     font-size: xx-large;
-    color: #303632;
+    color: #508CA4;
     margin: 0.5em;
     padding: 20px;
     line-height: 2;
     text-align: center;
     border-radius: 20px;
-    box-shadow: 1px 1px 6px 6px #2b2e99;
+    box-shadow: 1px 1px 6px 6px #BFD7EA;
 background-color: lightyellow;
 
 }
@@ -70,13 +70,12 @@ background-color: lightyellow;
 input, select{
     text-align: center;
     border-radius: 10px;
-font-family: Roberto;
-
     font-size: inherit;
-border: 0px solid #aaa;
+    border: 0px solid #aaa;
     border-bottom-width: 1px;
     background-color: rgba(100, 10, 10, 0.09);
-         margin: 10px;
+    font-family: 'Montserrat',sans-serif;
+    margin: 10px;
 
 }
 
