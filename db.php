@@ -5,9 +5,6 @@
 
 
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/highcharts-more.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
   <link rel="stylesheet" href="css/card.css">
 
 
@@ -79,7 +76,7 @@ $iurlExists=0;
        $adate = date_create($rows["item_date"]);
        date_sub($adate, date_interval_create_from_date_string('1 month'));
 
-
+      $table = '';
        $urlExists[$iurlExists]=$rows["item_url"];
        $iurlExists++;
            $table .= '{';
