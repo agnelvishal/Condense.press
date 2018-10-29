@@ -70,8 +70,6 @@ const actions = {
   },
   async getFeedsBetween({ commit, getters }) {
     const response = await apiFeeds.getFeedsBetween(getters.startDate, getters.endDate);
-    console.log('get feeds');
-    console.log(response);
     if (response && response.data) {
       commit(MUTATE_FEEDS_ADD_FEEDS, response.data);
     }

@@ -1,3 +1,4 @@
 module.exports = {
-  baseUrl: '/client/dist/'
+  baseUrl: '/client/dist/',
+  indexPath: '../../index.php'
 }
