@@ -1,32 +1,31 @@
 <template>
     <div class="card">
-        <div class="center-image" style="background-image: url(https://ichef.bbci.co.uk/news/1024/branded_news/E86D/production/_101010595_alfieevans2.jpg);"></div>
-        <h2 class="block-with-text">British toddler in legal battle dies</h2>
+        <div class="center-image" :style="`background-image: url(${image});`"></div>
+        <h2 class="block-with-text">{{ title }}</h2>
         <div class="container">
-            <span class="date">2018-04-28</span>
+            <span class="date">{{ date }}</span>
             <div class="meta">
                 <div class="meta-item">
-                    <p class="label">Total Popularity:</p>
-                    <p>110</p>
+                  <p class="label">Total Popularity:</p>
+                  <p>{{ popularity }}</p>
                 </div>
                 <div class="meta-item">
-                    <p class="label">Search Engine Popularity:</p>
-                    <p>66</p>
+                  <p class="label">Search Engine Popularity:</p>
+                  <p>{{ searchPopularity }}</p>
                 </div>
                 <div class="meta-item">
-                    <p class="label">Facebook Shares</p>
-                    <p>140541</p>
+                  <p class="label">Facebook Shares</p>
+                  <p>{{ fbShares }}</p>
                 </div>
                 <div class="meta-item">
-                    <p class="label">Facebook Likes:</p>
-                    <p>297</p>
+                  <p class="label">Facebook Likes:</p>
+                  <p>{{ fbLikes }}</p>
                 </div>
             </div>
             <p class="description">
-              We're heartbroken, say the parents of Alfie Evans,
-              as they announce the 23-month-old died overnight.
+              {{ description }}
             </p>
-            <a target="_blank" href="http://www.bbc.co.uk/news/uk-43933056">Read more</a>
+            <a target="_blank" :href="source">Read more</a>
         </div>
     </div>
 </template>
@@ -34,5 +33,43 @@
 <script>
 export default {
   name: 'Article',
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    date: {
+      type: String,
+      required: true,
+    },
+    image: {
+      type: String,
+      required: true,
+    },
+    source: {
+      type: String,
+      required: true,
+    },
+    popularity: {
+      type: Number,
+      default: 0,
+    },
+    searchPopularity: {
+      type: Number,
+      default: 0,
+    },
+    fbShares: {
+      type: Number,
+      default: 0,
+    },
+    fbLikes: {
+      type: Number,
+      default: 0,
+    },
+  },
 };
 </script>

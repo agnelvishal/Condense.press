@@ -7,8 +7,8 @@ const MUTATE_FEEDS_ADD_FEEDS = 'MUTATE_FEEDS_ADD_FEEDS';
 
 const state = {
   source: null,
-  startDate: null,
-  endDate: null,
+  startDate: new Date(),
+  endDate: new Date(),
   sources: [
     'www.bbc.com',
     'www.yourstory.com',
@@ -62,8 +62,19 @@ const actions = {
     commit(MUTATE_FEEDS_CHANGE_SOURCE, source);
   },
   async getFeeds({ commit }) {
-    const response = apiFeeds.getFeeds();
-    commit(MUTATE_FEEDS_ADD_FEEDS, response);
+    const response = await apiFeeds.getFeeds();
+    if (response && response.data) {
+      commit(MUTATE_FEEDS_ADD_FEEDS, response.data);
+    }
+    return response;
+  },
+  async getFeedsBetween({ commit, getters }) {
+    const response = await apiFeeds.getFeedsBetween(getters.startDate, getters.endDate);
+    console.log('get feeds');
+    console.log(response);
+    if (response && response.data) {
+      commit(MUTATE_FEEDS_ADD_FEEDS, response.data);
+    }
     return response;
   },
 };

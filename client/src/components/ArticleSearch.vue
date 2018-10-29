@@ -1,16 +1,16 @@
 <template>
     <form id="req" >
         Here are the articles of
-        <select name="site">
-            <option value="www.bbc.com">www.bbc.com</option>
-            <option value="www.yourstory.com">www.yourstory.com</option>
+        <select :value="source" @input="setSource($event.target.value); getFeeds();">
+          <option v-for="source in sources" :key="source" :value="source">
+            {{ source }}
+          </option>
         </select>
-        <select >
-        </select>
-
         sorted by popularity from
-        <input type="date" name="fromDate" > to
-        <input type="date" name="toDate" >
+        <input  type="date" name="fromDate" :value="startDate"
+                @input="setStartDate(new Date($event.target.value)); getFeeds();"> to
+        <input  type="date" name="toDate" :value="endDate"
+                @input="setEndDate(new Date($event.target.value)); getFeeds();">
     </form>
 </template>
 
@@ -18,11 +18,7 @@
 export default {
   name: 'ArticleSearch',
   created() {
-    const today = new Date();
-    const yesterday = new Date();
-    yesterday.setDate(yesterday.getDate() - 1);
-    this.setStartDate(today);
-    this.setEndDate(yesterday);
+    this.initializeData();
   },
   computed: {
     source() {
@@ -39,11 +35,32 @@ export default {
     },
   },
   methods: {
+    initializeData() {
+      const yesterday = new Date();
+      yesterday.setDate(yesterday.getDate() - 1);
+      this.setStartDate(yesterday);
+      const today = new Date();
+      this.setEndDate(today);
+      if (this.sources.length > 0) {
+        this.setSource(this.sources[0]);
+      }
+      this.getFeeds();
+    },
+    setSource(source) {
+      this.$store.dispatch('feeds/setSource', source);
+    },
     setStartDate(date) {
       this.$store.dispatch('feeds/setStartDate', date);
     },
     setEndDate(date) {
       this.$store.dispatch('feeds/setEndDate', date);
+    },
+    async getFeeds() {
+      try {
+        await this.$store.dispatch('feeds/getFeedsBetween');
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };
