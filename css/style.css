@@ -1,8 +1,6 @@
 
-
-
 body {
-    background-color: #5e387f;
+    /*background-color: #5e387f;*/
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -24,8 +22,10 @@ header:after,
 }
 
 .headerContainer {
-    max-width: 1100px;
+    /*max-width: 1100px;*/
+    padding: 20px;
     margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -36,8 +36,7 @@ header {
 
 header .logo {
     color: #ee4d4d;
-    float: left;
-    font-size: 22px;
+    font-size: 40px;
     font-weight: 500;
 }
 
@@ -45,21 +44,20 @@ header .logo>span {
     color: #f7aaaa;
     font-weight: 300;
 }
-
-
 /*
      Form
 */
 #req {
-    font-size: xx-large;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
     color: #303632;
     margin: 0.5em;
     padding: 20px;
     line-height: 2;
     text-align: center;
     border-radius: 20px;
-    box-shadow: 1px 1px 6px 6px #2b2e99;
-background-color: lightyellow;
+    /*box-shadow: 1px 1px 1px 1px #cccccc;*/
+background-color: #72e7ff;
 
 }
 
@@ -72,16 +70,13 @@ input, select{
     border-radius: 10px;
 font-family: Roberto;
 
-    font-size: inherit;
+    font-size: 16px;
 border: 0px solid #aaa;
     border-bottom-width: 1px;
     background-color: rgba(100, 10, 10, 0.09);
          margin: 10px;
 
 }
-
-
-
 
 /*
      Iframes
@@ -92,7 +87,6 @@ border: 0px solid #aaa;
   padding-top: 120%;
   position: relative;
 }
-
 .iframe-container iframe {
    border: 0;
    height: 100%;
