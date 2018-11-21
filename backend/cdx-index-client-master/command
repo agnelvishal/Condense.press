@@ -1,0 +1,1 @@
+python3 cdx-index-client.py -c all http://skcript.com/* --fl url -d avcrawled
