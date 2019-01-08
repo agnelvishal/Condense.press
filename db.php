@@ -1,164 +1,175 @@
 
-<head>
-
-
-
-
-
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/highcharts-more.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-  <link rel="stylesheet" href="css/card.css">
-
-
-
-
-</head>
-<body>
-<?php
-
-
-try{
-//$output=$_POST["output"];
-
-$fromDate=$_POST["fromDate"];
-$toDate=$_POST["toDate"];
-
-// Declaring Base URL for API EndPoint
-$url = "http://localhost:8000/";
-
-// Determining final end point and concatenating data as needed
-if (!empty($fromDate) and !empty($toDate)) {
-    $url .= "feeds/between?startDate=$fromDate&endDate=$toDate";
-} else {
-    $url .= "feeds";
-}
-
-// Opening a curl request
-$apiRequest = curl_init();
-
-// Setting Request URL to the opened curl request
-curl_setopt($apiRequest, CURLOPT_URL, $url);
-
-// Telling curl to return results to var instead of printing to the screen
-curl_setopt($apiRequest, CURLOPT_RETURNTRANSFER, 1);
-
-// Executing and storing returns from the curl request
-$result = curl_exec($apiRequest);
-
-// Closing curl request
-curl_close($apiRequest);
-
-// Converting JSON Return to a array Object
-$result = json_decode($result, true);
-
-include "chartsScript.php";
-?>
-
-
-<?php
-// Data being fetched from db for charts
-$urlExists=array();
-$iurlExists=0;
-
-   foreach ($result['data'] as $index => $item) {
-     if (in_array($item["item_url"], $urlExists))
-     {
-     continue;
-     }
-     else
-     {
-       $adate = date_create($item["item_date"]);
-       date_sub($adate, date_interval_create_from_date_string('1 month'));
-
-
-       $urlExists[$iurlExists]=$item["item_url"];
-       $iurlExists++;
-           $table .= '{';
-           $table .= 'x:Date.UTC(';
-           $table .= date_format($adate, 'Y,m,d').'),';
-           $table .= 'y:';
-           $table .= $item["total"].',';
-           $table .= 'z:';
-           $table .= $item["total"].',';
-           $table .= 'heading:';
-           $table .= '\'';
-           $table .=  addcslashes($item["item_title"], "'");
-           $table .= '\''.',';
-
-           $table .= 'url:';
-           $table .= '\'';
-           $table .= $item["item_url"];
-           $table .= '\'';
-           $table.='}';
-           $table.=',';
-    }
-  }
-  echo $table;
-  ?>
-
-// Highcharts code termination
-     ]
-     }]
-
-   });
-
-  </script>
-
   <?php
+  try {
 
-
-// Data being fetched for cards
-
-
- $table = '<div class="row">';
-
-    $urlExists=array();
-    $iurlExists=0;
-       foreach ($result['data'] as $index => $item) {
-
-         if (in_array($item["item_url"], $urlExists))
-         {
-         continue;
-
-         }
-         else
-         {
-
-           $urlExists[$iurlExists]=$item["item_url"];
-           $iurlExists++;
-       $table .= '<div class="column"><div class="card">';
-
-       $table .='<div class="center-image" style="background-image: url('.$item["image"].');" style="width:320px"></div>';
-       $table .= '<h2 class="block-with-text">'.$item["item_title"].'</h2>';
-       $table .='<div class="container">';
-       $table .= '<span class="date">'.$item["item_date"].'</span>';
-       $table .= '<div class="meta"><div class="meta-item"><p class="label">Total Popularity:</p><p>';
-       $table .= $item["total"];
-       $table .= '</p></div><div class="meta-item"><p class="label">Search Engine Popularity:</p><p>';
-       $table .= $item["pa"];
-       $table .= '</p></div><div class="meta-item"><p class="label">Facebook Shares</p><p>';
-       $table .= $item["shares"];
-       $table .= '</p></div><div class="meta-item"><p class="label">Facebook Likes:</p><p>';
-       $table .= $item["likes"];
-       $table .= '</p></div></div><p class="description">';
-       $table .= $item["item_content"];
-       $table .= '</p>';
-
-       $table .= '<a target="_blank" href="'.$item["item_url"].'" >Read more</a>';
-       $table.='</div></div></div>'	;
+    //Diagnosis
+      //  ini_set("display_errors",1);
+      //error_reporting(E_ALL);
+    
+      // Database details
+      $d = "127.0.0.1";
+      $u = "root";
+      $p = "";
+      $db = mysqli_connect($d, $u, $p, "condense");
+      if (mysqli_connect_errno($db)) {
+          echo "AV:Failed to connect to MySQL: " . mysqli_connect_error();
+          exit();
       }
-    }
-    $table.='</div>';
+      $site = $_GET["site"];
+      if ($site == "others") {
+          $siteText=$_GET["siteText"];
+          $email=$_GET["email"];
+          $email=mysqli_real_escape_string($db, $email);
+          $siteText=mysqli_real_escape_string($db, $siteText);
 
-  echo $table;
+          $item_select = "Insert into users (email, website) values ('".$email."','".$siteText."')";
 
-} catch (Exception $e) {
-  echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+          // echo $item_select;
+          $result = mysqli_query($db, $item_select);
+          if (!$result) {
+              die('Av -- Could not insert data in others: --' . mysqli_error($db));
+          }
+          else
+          {
+              echo "You will receive the results of ".$siteText." in your mail ".$email." in around 2 hours";
+          }
+          mysqli_close($db);
+      } else {
+          $limit=$_GET["limit"];
+        
+          //$output=$_POST["output"];
+    
+          $dateSelect = $_GET["dateSelect"];
+          if ($dateSelect == "custom") {
+              $fromDate = $_GET["fromDate"];
+              $toDate = $_GET["toDate"];
+          } else {
+              $fromDate = date("Y-m-d", strtotime($dateSelect));
+              $toDate = date("Y-m-d", strtotime("now"));
+          }
 
- ?>
+
+    
+          $fromDate=mysqli_real_escape_string($db, $fromDate);
+          $toDate=mysqli_real_escape_string($db, $toDate);
+          $site=mysqli_real_escape_string($db, $site);
 
 
-</body>
+          //query generation for date
+          $whereDateClause=" where";
+          $whereDateClause.="(date between\"";
+          $whereDateClause.=$fromDate;
+          $whereDateClause.="\" AND \"";
+          $whereDateClause.=$toDate;
+          $whereDateClause.="\" )";
 
+          $item_select = "SELECT count(*) as count FROM `".$site."`".$whereDateClause;
+
+          //echo $item_select;
+          $result = mysqli_query($db, $item_select);
+          if (!$result) {
+              die('Av -- Could not get data: --' . mysqli_error($db));
+          }
+          $rows = mysqli_fetch_assoc($result);
+          echo "<div id='picked'> Picked from ".number_format($rows["count"])." articles </div>";
+
+          $item_select = "SELECT title,date, url,total,image,fblikes,fbshares,mozPa, reddit, pinterest FROM `".$site."`".$whereDateClause." ORDER BY total desc limit ".$limit;
+
+          //echo $item_select;
+          $result = mysqli_query($db, $item_select);
+          if (!$result) {
+              die('Av -- Could not get data: --' . mysqli_error($db));
+          }
+
+   
+
+
+          // Data being fetched for cards
+
+
+          $table = '<div class="row">';
+
+
+
+          while ($rows = mysqli_fetch_assoc($result)) {
+              $table .= '<div class="column"><div class="card">';
+
+              $table .='<div class="center-image" style="background-image: url('.$rows["image"].');"></div>';
+              $table .= '<h2 class="block-with-text">'.preg_replace('/u([a-fA-F0-9]{4})/', '&#x\\1;', $rows["title"]).'</h2>';
+              $table .= '<a target="_blank" href="'.$rows["url"].'" >Read Full Article</a>';
+              $table .='<div class="container">';
+              $table .='<div class="totalPopularity"> Total Popularity :'.$rows["total"].'</div>';
+              $table .= '<div class="meta">';
+              $table .= '<div class="meta-item"><p class="label">Search Engine Popularity:</p><p>';
+              $table .= $rows["mozPa"]."</p></div>";
+              $table .= '<div class="meta-item"><p class="label">Facebook Shares:</p><p>';
+              $table .= $rows["fbshares"]."</p></div>";
+              $table .= '<div class="meta-item"><p class="label">Facebook Likes:</p><p>';
+              $table .= $rows["fblikes"]."</p></div>";
+              $table .= '<div class="meta-item"><p class="label">Reddit:</p><p>';
+              $table .= $rows["reddit"]."</p></div>";
+              $table .= '<div class="meta-item"><p class="label">Pinterest:</p><p>';
+              $table .= $rows["pinterest"]."</p></div>";
+              $table .= '</div>';
+              /*$table .= '<p class="description">';
+              $table .= $rows["description"];
+              $table .= '</p>';
+              */
+              $table.='</div></div></div>';
+          }
+          $table.='</div>';
+
+          echo $table;
+
+
+//
+          mysqli_data_seek($result, 0);
+          include "chartsScript.php";
+
+          // Data being fetched from db for charts
+          $table = "";
+          while ($rows = mysqli_fetch_assoc($result)) {
+              $adate = date_create($rows["date"]);
+
+              // Not sure why I am subtracting a month.
+              date_sub($adate, date_interval_create_from_date_string('1 month'));
+
+              $table .= '{';
+              $table .= 'x:Date.UTC(';
+              $table .= date_format($adate, 'Y,m,d').'),';
+              $table .= 'y:';
+              $table .= $rows["total"].',';
+              $table .= 'z:';
+              $table .= $rows["fbshares"].',';
+              $table .= 'heading:';
+              $table .= '\'';
+              $table .=  addcslashes($rows["title"], "'");
+              $table .= '\''.',';
+
+              $table .= 'url:';
+              $table .= '\'';
+              $table .= $rows["url"];
+              $table .= '\'';
+              $table.='}';
+              $table.=',';
+          }
+          echo $table; ?>
+
+  // Highcharts code termination
+  ]
+}]
+
+});
+
+</script>
+
+<?php
+
+mysqli_free_result($result);
+          mysqli_close($db);
+      }
+  } catch (Exception $e) {
+      echo 'Caught exception: ',  $e->getMessage(), "\n";
+  }
+
+?>

@@ -1,8 +1,8 @@
-<div id="container" style="height: 400px; min-width: 310px; max-width: 600px; margin: 0 auto"></div>
+<div id="chart-container" style="height: 400px; min-width: 310px; max-width: 600px; margin: 0 auto"></div>
 
 
 <script>
-Highcharts.chart('container', {
+Highcharts.chart('chart-container', {
 
    chart: {
      type: 'bubble',
@@ -15,7 +15,7 @@ Highcharts.chart('container', {
    },
 
    title: {
-     text: 'Visualization of news by ratings and time'
+     text: '<h2> Articles in Chart. </h2>'
    },
 
    subtitle: {

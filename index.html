@@ -2,40 +2,124 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Timeline</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+<!-- COMMON TAGS -->
+<meta charset="utf-8">
+<title>Pick popular articles</title>
+<!-- Search Engine -->
+<meta name="description" content="Pick articles sorted by popularity in a specific date range.">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="Pick popular articles">
+<meta itemprop="description" content="Pick articles sorted by popularity in a specific date range.">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Pick popular articles">
+<meta name="twitter:description" content="Pick articles sorted by popularity in a specific date range.">
+<meta name="twitter:creator" content="@agnelvishal">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="Pick popular articles">
+<meta name="og:description" content="Pick articles sorted by popularity in a specific date range.">
+<meta name="og:url" content="https://www.condense.press">
+<meta name="og:site_name" content="Condense.press">
+<meta name="og:locale" content="en_US">
+<meta name="fb:admins" content="100000732983494">
+<meta name="fb:app_id" content="628567277572818">
+<meta name="og:type" content="website">
+
+<title>Popular Articles</title>
   <link rel="stylesheet" href="css/style.css">
-  <style>
+  <link rel="stylesheet" href="css/card.css">
+  <script src="./js/jquery-3.3.1.js"></script>
 
 
-</style>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts-more.js"></script>
+
+  <!-- Matomo -->
+  <script type="text/javascript">
+    var _paq = _paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function () {
+      var u = "//condense.press/analytics/piwik/";
+      _paq.push(['setTrackerUrl', u + 'piwik.php']);
+      _paq.push(['setSiteId', '1']);
+      var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+      g.type = 'text/javascript'; g.async = true; g.defer = true; g.src = u + 'piwik.js'; s.parentNode.insertBefore(g, s);
+    })();
+  </script>
+  <!-- End Matomo Code -->
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-47293504-7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-47293504-7');
+  </script>
+  <!-- Hotjar Tracking Code for http://condense.press/ -->
+  <script>
+    (function (h, o, t, j, a, r) {
+      h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+      h._hjSettings = { hjid: 1135612, hjsv: 6 };
+      a = o.getElementsByTagName('head')[0];
+      r = o.createElement('script'); r.async = 1;
+      r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+  </script>
+
 </head>
 
 <body>
-  <header>
-    <div class="headerContainer">
-      <h1 class="logo"> condense<span>.press</span> </h1>
+  <form id="req" action="javascript:void(0);">
+    <label for="site">Here are <input type="number" name="limit" value="50" min="1"> articles of</label>
+    <select id="site" name="site">
+      <option value="yourstory.com">yourstory.com</option>
+      <option value="techcrunch.com" selected>techcrunch.com</option>>
+      <option value="skcript.com">skcript.com</option>
+      <option value="others">Other website</option>>
+    </select>
+    <input type="search" autocomplete="url" id="siteText" name="siteText" placeholder="Enter website name" style="display :None" required>
 
+    sorted by popularity from
+
+    <select id="dateSelect" name="dateSelect">
+      <option value="5 years ago" selected>last 4 years</option>
+      <option value="last year">last year</option>
+      <option value="custom">custom date range</option>
+    </select>
+
+    <span id="customid" style="display :None">
+      from
+      <input type="date" id="fromDate" name="fromDate" value="2018-04-28"> to
+      <input type="date" id="toDate" name="toDate" value="2018-11-29">.
+    </span>
+   <span id="email" style="display :None"> My e-mail id is <input type="email" name="email" placeholder="Enter your email" autocomplete="on" required> </span>
+    <div id="buttonGroup"> <input type="submit" value="Load Articles" id="button"> <label for="button" id="loading">Loading
+        <span class="spinner">
+          <div class="cube1"></div>
+          <div class="cube2"></div>
+        </span></label>
+        <label for="button" id="loaded" display="None"> Loaded.  </label>
     </div>
-  </header>
+</form>
 
-    <form id="req" target="aviframe" action="db.php" method="post">
-      <label for="site">Here are the articles of</label>
-      <select id="site" name="site"> <option value="www.bbc.com">www.bbc.com</option><option value="www.yourstory.com">www.yourstory.com</option></select>
-<label for="fromDate">sorted by popularity from </label>
-      <input type="date" id="fromDate" name="fromDate" value=2018-04-28 > <label for="toDate">to</label>
-      <input type="date" id="toDate" name="toDate" value="2018-04-29" >.
+  <div id="iframe-container">
 
-      <input type="submit" value="Submit" style="visibility: hidden;">
-    </form>
+  </div>
 
 
-<div class="iframe-container">
-<iframe id="aviframe" name="aviframe" align="bottom"  frameborder="0" allowfullscreen>
-</iframe>
-</div>
-
- <script src="./js/autoSubmit.js"></script>
+  <script src="./js/loadArticles.js"></script>
+  <script>
+    document.querySelector("#dateSelect").addEventListener('change', function () { if (this.value == "custom") { document.querySelector("#customid").style.display = ""; } else { document.querySelector("#customid").style.display = "None"; } });
+    document.querySelector("#site").addEventListener('change', function () { if (this.value == "others") { document.querySelector("#siteText").style.display = "";document.querySelector("#email").style.display = ""; } else { document.querySelector("#siteText").style.display = "None";document.querySelector("#email").style.display = "None" } });
+  </script>
+  <script>document.addEventListener("click", function () { document.documentElement.requestFullscreen(); }, { once: true }); </script>
 </body>
 
 </html>
