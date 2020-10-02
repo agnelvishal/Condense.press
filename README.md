@@ -1,1 +1,2 @@
   We use Google news, inshorts app, Flipboard etc to pick articles. However they are not customisable with respect to time. We cannot pick articles sorted by popularity of a specified time like say last six months . So building one.
+Few changes added
