@@ -17,3 +17,5 @@ Hence I and my friends(Domnic Amalan, Deepak, Rejo) have created https://www.con
 
 For example, techcrunch.com has 292,172 articles. But https://www.condense.press sorts all those articles based on popularity.
 
+Note: Due to high server costs, https://www.condense.press has been shut down. We are working on decentralized and customizable IPFS search engine. Check our Gitcoin page at https://gitcoin.co/grants/780/customata-decentralized-recommendation-engine-for
+
